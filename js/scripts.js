@@ -258,16 +258,75 @@ getVerbConjugation('morir');
 
 // 2️⃣4️⃣ Abby encontró una caja cerrada con un código de 5 números. Solo uno de cada 5 intentos abrirá la caja. Crea una función que simule 5 intentos y muestre si en alguno se abre la caja o no.
 
+const randomCode = () => {
+  const firstTry = Math.random() < 0.2;
+  const secondTry = Math.random() < 0.2;
+  const thirdTry = Math.random() < 0.2;
+  const fourthTry = Math.random() < 0.2;
+  const fifthTry = Math.random() < 0.2;
+
+  if (firstTry || secondTry || thirdTry || fourthTry || fifthTry) {
+    console.log('Abby lo consiguió.');
+  } else {
+    console.log('No se puede abrir.');
+  }
+};
+randomCode();
+
 // 2️⃣5️⃣ Camila quiere generar una clave secreta para una nueva cuenta. La clave debe tener un número aleatorio entre 100 y 999 y una letra aleatoria entre "A" y "Z". Crea una función que genere una clave con ese formato.
 
 const generateSecretPassword = (number, letter) => {};
 
 // 2️⃣6️⃣ Macarena quiere jugar al Euromillones, pero como nunca le toca, ha decidido confiar en el destino. Quiere generar 5 números aleatorios entre 1 y 50, asegurándose de que si un número es menor que 10, aparezca con un "0" delante. Por ejemplo, un posible resultado sería: "08 10 33 35 49". Crea una función que genere y muestre esta combinación de números en el formato correcto.
 
+const getLotteryNumber = () => {
+  const aleatoryNumber = Math.floor(Math.random() * 50 + 1);
+  const lotteryNumber =
+    aleatoryNumber < 10 ? '0' + aleatoryNumber : aleatoryNumber;
+  return lotteryNumber;
+};
+
+const lotteryNumber = () => {
+  const number1 = getLotteryNumber();
+  const number2 = getLotteryNumber();
+  const number3 = getLotteryNumber();
+  const number4 = getLotteryNumber();
+  const number5 = getLotteryNumber();
+  console.log(number1, number2, number3, number4, number5);
+};
+lotteryNumber();
 // 2️⃣7️⃣ Sabrina necesita ocultar parte de un número de tarjeta de crédito. Dado un número de 16 dígitos como string, la función debe reemplazar todos los caracteres excepto los últimos 4 con asteriscos. Por ejemplo, "1234567812345678" debe mostrarse como **********5678.
 
 // 2️⃣8️⃣ Camila quiere dividir frases largas en dos partes. Si una frase tiene más de 20 caracteres, debe dividirla en dos partes: los primeros 10 caracteres y el resto, separados por " - ". Si la frase tiene 20 o menos, se devuelve tal cual. Crea una función que realice esta división.
 
 // 2️⃣9️⃣ Sabrina está encriptando mensajes secretos. Sabe que todos los mensajes deben tener 4 letras y quiere que cada letra de una palabra se sustituya por la siguiente en el abecedario (por ejemplo, "hola" se convertiría en "ipmb"). Si la letra es "z" o "Z", debe convertirse en "a" o "A" respectivamente. Crea una función que realice esta transformación en una palabra.
 
+const encrypdtedMessage = message => {
+  const letters = 'abdefghijklmnñopqrstuvwxyz';
+  const firstLetterPosition = letters.indexOf(message.charAt(0));
+  const firstLetter =
+    firstLetterPosition === letters.length - 1
+      ? 'a'
+      : letters.charAt(firstLetterPosition + 1);
+
+  const secondLetterPosition = letters.indexOf(message.charAt(1));
+  const secondLetter =
+    secondLetterPosition === letters.length - 1
+      ? 'a'
+      : letters.charAt(secondLetterPosition + 1);
+
+  const thirdLetterPosition = letters.indexOf(message.charAt(2));
+  const thirdLetter =
+    thirdLetterPosition === letters.length - 1
+      ? 'a'
+      : letters.charAt(thirdLetterPosition + 1);
+  const fourthLetterPosition = letters.indexOf(message.charAt(3));
+  const fourthLetter =
+    fourthLetterPosition === letters.length - 1
+      ? 'a'
+      : letters.charAt(fourthLetterPosition + 1);
+
+  console.log(`${firstLetter}${secondLetter}${thirdLetter}${fourthLetter}`);
+};
+encrypdtedMessage('cami');
 // 3️⃣0️⃣ Bego necesita verificar si dos palabras de 4 letras son palíndromos (es decir, si lee igual de derecha a izquierda y de izquierda a derecha, como "amor" y "roma"). Crea una función que determine si dos palabras son palíndromos.
