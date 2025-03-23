@@ -383,3 +383,5 @@ const isAPalindrome = (firstWord, secondWord) => {
 	}
 };
 isAPalindrome('amor', 'roma');
+
+//finished
